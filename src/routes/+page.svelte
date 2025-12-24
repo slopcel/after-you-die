@@ -4,6 +4,9 @@
 	import Lock from 'lucide-svelte/icons/lock';
 	import Database from 'lucide-svelte/icons/database';
 	import TrendingUp from 'lucide-svelte/icons/trending-up';
+	import Twitter from 'lucide-svelte/icons/twitter';
+	import Globe from 'lucide-svelte/icons/globe';
+    import { links } from '../constants';
 
 	let { data }: { data: PageData } = $props();
 </script>
@@ -97,8 +100,84 @@
 			</div>
 		</section>
 
+		<section class="about-section">
+			<h2 class="section-title">Meet the Creator</h2>
+			<div class="creator-card">
+				<div class="creator-avatar">
+					<img src="https://slopcel.com/_next/image?url=%2Fmadiou_logo.jpg&w=256&q=75" alt="Madiou" />
+				</div>
+				<div class="creator-info">
+					<h3>Hey, there friends 👋</h3>
+					<p class="creator-title">CEO @ <a href="https://slopcel.com" target="_blank" rel="noopener">Slopcel</a></p>
+
+					<p class="creator-bio">
+						I made this website
+					</p>
+
+					<p class="creator-bio">
+						This website is a template for a SaaS project. It's a simple project that I made to try out SvelteKit and Supabase.
+					</p>
+
+
+					<div class="creator-links">
+						<a href="https://twitter.com/_madiou" target="_blank" rel="noopener" class="creator-social-link">
+							<Twitter size={18} />
+							@_madiou
+						</a>
+						<a href="https://slopcel.com" target="_blank" rel="noopener" class="creator-social-link">
+							<Globe size={18} />
+							Slopcel
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<footer class="footer">
+			<div class="footer-content">
+				<div class="footer-brand">
+					<h3>FriendApply</h3>
+					<p class="text-muted">Create and share friend application forms</p>
+				</div>
+				<div class="footer-links">
+					<h4>Connect</h4>
+					<div class="social-links">
+						<a
+							href={links.discord}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="social-link"
+							aria-label="Discord"
+						>
+							<img src="/icons/discord.svg" alt="Discord" width={20} height={20}>
+							<span>Discord</span>
+						</a>
+						<a
+							href={links.twitter}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="social-link"
+							aria-label="Twitter"
+						>
+							<Twitter size={20} />
+							<span>Twitter</span>
+						</a>
+						<a
+							href={links.website}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="social-link"
+							aria-label="Slopcel"
+						>
+							<Globe size={20} />
+							<span>Slopcel</span>
+						</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
 			<p class="text-muted">Built with SvelteKit and Supabase</p>
+		</div>
 		</footer>
 	</div>
 </main>
@@ -248,10 +327,197 @@
 		line-height: 1.6;
 	}
 
-	.footer {
+	/* About Section */
+	.section-title {
 		text-align: center;
-		padding: 4rem 0 3rem;
-		border-top: 1px solid var(--border-subtle);
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
+	}
+
+	.about-section {
+		padding: 6rem 0;
+	}
+
+	.creator-card {
+		max-width: 800px;
+		margin: 0 auto;
+		background: var(--bg-card);
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		padding: 2.5rem;
+		display: flex;
+		gap: 2rem;
+		align-items: flex-start;
+	}
+
+	.creator-avatar {
+		flex-shrink: 0;
+	}
+
+	.creator-avatar img {
+		width: 100px;
+		height: 100px;
+		border-radius: 12px;
+		object-fit: cover;
+	}
+
+	.creator-info {
+		flex: 1;
+		text-align: left;
+	}
+
+	.creator-info h3 {
+		font-size: 1.75rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.creator-title {
+		color: var(--accent);
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+	}
+
+	.creator-title a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.creator-title a:hover {
+		text-decoration: underline;
+	}
+
+	.creator-bio {
+		color: var(--text-secondary);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+		font-size: 0.9375rem;
+	}
+
+	/* Twitter embed styling */
+	.twitter-tweet {
+		margin: 1.5rem 0 !important;
+		max-width: 100% !important;
+	}
+
+	.creator-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+
+	.creator-social-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: var(--bg-secondary);
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		color: var(--text-primary);
+		font-size: 0.875rem;
+		font-weight: 500;
+		transition: all 0.2s ease;
+	}
+
+	.creator-social-link:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+
+	.footer {
+		padding: 4rem 0 2rem;
+		border-top: 1px solid var(--border);
+		margin-top: 4rem;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 3rem;
+		margin-bottom: 2rem;
+	}
+
+	.footer-brand h3 {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.footer-links h4 {
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-secondary);
+		margin-bottom: 1rem;
+	}
+
+	.social-links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		color: var(--text-secondary);
+		transition: color 0.2s ease;
+	}
+
+	.social-link:hover {
+		color: var(--accent);
+	}
+
+	.footer-bottom {
+		text-align: center;
+		padding-top: 2rem;
+		border-top: 1px solid var(--border);
+	}
+
+	@media (max-width: 768px) {
+		.about-section {
+			padding: 4rem 0;
+		}
+
+		.creator-card {
+			flex-direction: column;
+			align-items: center;
+			gap: 1.5rem;
+			padding: 2rem;
+		}
+
+		.creator-info {
+			text-align: center;
+			width: 100%;
+		}
+
+		.creator-info h3 {
+			font-size: 1.5rem;
+		}
+
+		.creator-title {
+			font-size: 0.9375rem;
+		}
+
+		.creator-bio {
+			font-size: 0.875rem;
+			text-align: left;
+		}
+
+		.twitter-tweet {
+			margin: 1.5rem auto !important;
+		}
+
+		.creator-links {
+			justify-content: center;
+		}
+
+		.creator-social-link {
+			font-size: 0.8125rem;
+			padding: 0.5rem 0.875rem;
+		}
 	}
 
 	@media (max-width: 640px) {
@@ -266,6 +532,87 @@
 		.hero-cta .btn {
 			width: 100%;
 		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.steps-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr;
+		}
+
+		.about-section {
+			padding: 3rem 0;
+		}
+
+		.creator-card {
+			padding: 1.5rem;
+			gap: 1.25rem;
+		}
+
+		.creator-avatar img {
+			width: 80px;
+			height: 80px;
+		}
+
+		.creator-info h3 {
+			font-size: 1.375rem;
+		}
+
+		.creator-title {
+			font-size: 0.875rem;
+			margin-bottom: 1rem;
+		}
+
+		.creator-bio {
+			font-size: 0.8125rem;
+			margin-bottom: 1rem;
+			line-height: 1.6;
+		}
+
+		.creator-links {
+			flex-direction: column;
+			width: 100%;
+		}
+
+		.creator-social-link {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.twitter-tweet {
+			margin: 1rem auto !important;
+		}
 	}
+
+	@media (max-width: 480px) {
+		.about-section {
+			padding: 2rem 0;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+			margin-bottom: 2rem;
+		}
+
+		.creator-card {
+			padding: 1.25rem;
+			border-radius: 12px;
+		}
+
+		.creator-avatar img {
+			width: 70px;
+			height: 70px;
+		}
+
+		.creator-info h3 {
+			font-size: 1.25rem;
+		}
+	}
+
 </style>
 

@@ -315,6 +315,7 @@ npm install lucide-svelte
 - Follow accessibility guidelines
 - Use lucide-svelte icons (import from specific paths)
 
+
 ### Don't
 - Use alert/confirm/prompt
 - Show raw error messages
