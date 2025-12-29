@@ -1,5 +1,5 @@
 {
-  "name": "indie-hacker-stack",
+  "name": "after-you-die",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -20,8 +20,6 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.5.2",
-    "@supabase/supabase-js": "^2.49.1",
     "lucide-svelte": "^0.562.0",
     "svelte-sonner": "^1.0.7"
   },
